@@ -64,8 +64,7 @@ switch (operacion)
 
 Console.WriteLine("Resultado = " + resultado);
 
-int primerNum;
-int segundoNum;
+
 int tercerNum;
 int absoluto;
 double cuadrado;
@@ -74,7 +73,7 @@ double seno;
 double coseno;
 int parteEntera;
 string ingreso;
-bool prueba;
+
 
 do
 {
