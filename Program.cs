@@ -1,4 +1,5 @@
 ﻿
+int indice;
 int longitud;
 int primerNum;
 int segundoNum;
@@ -6,13 +7,15 @@ int resultado = 0;
 string aBuscarUno = "prueba";
 string aBuscarDos = "gato";
 char operador;
-string ingreso;
+char[] operadores = { '+', '-', '*', '/'};
 string linea = "\nCadena de prueba para Ejercicio 4 TP 6";
-string lineaIngresada;
+string ingreso;
 string concatenadas;
+string lineaIngresada;
 // acordate que los arreglos se declaran al reves
 // lo mejor es que C# determina el tamaño solo despues
 string[] palabras;
+string[] numerosAOperar = null;
 bool prueba;
 
 
@@ -92,9 +95,10 @@ switch (operador)
         break;
 }
 
-Console.WriteLine($"El resultado de {primerNum} {operador} {segundoNum} es {resultado}\n");
+Console.WriteLine($"\nEl resultado de {primerNum} {operador} {segundoNum} es {resultado}\n");
 
 // recorrer con foreach y mostrar
+Console.WriteLine("Mostrando la frase letra por letra:");
 foreach (char caracter in concatenadas)
 {
     Console.WriteLine($"{caracter}");
@@ -152,10 +156,11 @@ concatenadas = concatenadas.ToLower();
 Console.WriteLine("\nLa cadena En minusculas: " + concatenadas);
 
 // .Split() en un punto
-Console.WriteLine("Ahora, ingresa alguna linea de texto que contenga varios puntos: \n");
+Console.WriteLine("\nAhora, ingresa alguna linea de texto que contenga varios puntos: ");
 lineaIngresada = Console.ReadLine();
 
 palabras = lineaIngresada.Split('.');
+Console.WriteLine("\n");
 foreach (string palab in palabras)
 {
     Console.WriteLine($"{palab}");
@@ -163,7 +168,40 @@ foreach (string palab in palabras)
 
 
 // hacer una operacion de un string
-Console.WriteLine("Por ultimo una operacion simple (+, -, *, /): ");
+Console.WriteLine("\nPor ultimo una operacion simple (+, -, *, /): ");
 lineaIngresada = Console.ReadLine();
 
-/* TERMINAR ESTO ULTIMO */
+foreach (char op in operadores)
+{
+    indice = lineaIngresada.IndexOf(op);
+    if (indice != -1)                       // .IndesOf() devuelve -1 si no encuentra el char que buscas
+    {
+        operador = lineaIngresada[indice];
+        numerosAOperar = lineaIngresada.Split(operador);
+    }
+}
+
+int.TryParse(numerosAOperar[0], out primerNum);
+int.TryParse(numerosAOperar[1], out segundoNum);
+
+// no podes concatenar para hacer la operacion, no te queda otra que un switch o if...
+switch (operador)
+{
+    case '+':
+        resultado = primerNum + segundoNum;
+        break;
+
+    case '-':
+        resultado = primerNum - segundoNum;
+        break;
+    
+    case '*':
+        resultado = primerNum * segundoNum;
+        break;
+
+    case '/':
+        resultado = primerNum / segundoNum;
+        break;
+}
+
+Console.WriteLine($"\n{primerNum} {operador} {segundoNum} = {resultado}\n");
