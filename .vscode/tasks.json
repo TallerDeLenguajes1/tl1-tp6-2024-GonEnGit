@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                // cambia TODA la direccion por la del .csproj que se genera
+                "C:\\Users\\g\\Desktop\\paraHacerTaller\\tl1-tp6-2024-GonEnGit\\tl1-tp6-2024-GonEnGit.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                // cambia TODA la direccion por la del .csproj que se genera
+                "C:\\Users\\g\\Desktop\\paraHacerTaller\\tl1-tp6-2024-GonEnGit\\tl1-tp6-2024-GonEnGit.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                // cambia TODA la direccion por la del .csproj que se genera
+                "C:\\Users\\g\\Desktop\\paraHacerTaller\\tl1-tp6-2024-GonEnGit\\tl1-tp6-2024-GonEnGit.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
